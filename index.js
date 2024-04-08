@@ -1,18 +1,31 @@
+
+
+
+
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // Pseudocode:
+  // 1. Create an empty set to store the seen numbers.
+  // 2. loop through the array.
+  // 3.Calculate the difference between the target and the current number each loop
+  // 4. Check if the difference exists in the set. If it does, return true as we found a pair.
+  // 5. If the difference doesn't exist in the set, add the current number to the set.
+  // 6. If no pair is found after iterating through the entire array, return false.
+
+  let seenNumbers = new Set();
+
+  for (let num of array) {
+    let difference = target - num;
+    if (seenNumbers.has(difference)) {
+      return true;
+    } else {
+      seenNumbers.add(num);
+    }
+  }
+
+  return false;
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
 
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
